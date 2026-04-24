@@ -45,3 +45,4 @@ require_once dirname(__DIR__) . '/helpers/lang.php';
 require_once dirname(__DIR__) . '/helpers/view.php';
 require_once dirname(__DIR__) . '/helpers/auth.php';
 require_once dirname(__DIR__) . '/helpers/csrf.php';
+require_once dirname(__DIR__) . '/helpers/flash.php';
