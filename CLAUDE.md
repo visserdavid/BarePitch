@@ -162,3 +162,24 @@ These rules apply to every task in this project:
 - After completing a feature, suggest the correct commit message using the prefix conventions above
 - When a version milestone is complete, remind to: merge `wip` → `main`, create a version tag, push branch and tags
 - When creating a GitHub release, use `gh release create` with a short summary of what changed
+
+## i18n
+
+Language files live in `lang/`. Each file returns a flat PHP array keyed by dot-notation strings.
+
+- `lang/en.php` — English (canonical keys, always the fallback)
+- `lang/nl.php` — Dutch
+
+The active language is set via `APP_LANG` in `.env`.
+
+**Usage in views**
+```php
+<?= e(__('teams.title')) ?>
+<?= e(__('dashboard.welcome', ['name' => $displayName])) ?>
+```
+
+**Rules**
+- All user-facing strings in views must use `__()` — never hardcode interface text
+- New strings are added to both `lang/en.php` and `lang/nl.php` at the same time
+- Keys use dot-notation grouped by feature: `auth.*`, `teams.*`, `players.*`, `matches.*`, `attendance.*`, `validation.*`, `error.*`, `general.*`
+- The `__()` helper never throws — missing keys return the key itself as fallback

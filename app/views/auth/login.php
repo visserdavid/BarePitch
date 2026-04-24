@@ -1,30 +1,30 @@
-<?php $pageTitle = 'Log in — BarePitch'; ?>
+<?php $pageTitle = __('auth.login.title') . ' — BarePitch'; ?>
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section class="auth-form">
-    <h1>Log in</h1>
+    <h1><?= e(__('auth.login.title')) ?></h1>
 
     <?php if (!empty($error)): ?>
-        <p class="form-error"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
+        <p class="form-error"><?= e($error) ?></p>
     <?php endif; ?>
 
     <form method="POST" action="/login.php" novalidate>
         <?= csrfField() ?>
 
         <div class="field">
-            <label for="email">Email address</label>
+            <label for="email"><?= e(__('auth.login.email')) ?></label>
             <input
                 type="email"
                 id="email"
                 name="email"
-                value="<?= htmlspecialchars($email ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                value="<?= e($email ?? '') ?>"
                 required
                 autocomplete="email"
             >
         </div>
 
         <div class="field">
-            <label for="password">Password</label>
+            <label for="password"><?= e(__('auth.login.password')) ?></label>
             <input
                 type="password"
                 id="password"
@@ -35,7 +35,7 @@
         </div>
 
         <div class="field">
-            <button type="submit">Log in</button>
+            <button type="submit"><?= e(__('auth.login.submit')) ?></button>
         </div>
     </form>
 </section>
