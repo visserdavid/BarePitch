@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.site-header {
+    background: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+    padding: 0.75rem 0;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.site-nav form {
+    display: inline;
+}
+
+.site-nav button {
+    background: none;
+    border: none;
+    color: #005fcc;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.site-nav button:hover {
+    color: #003f8a;
+}
+
+main.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.auth-form {
+    max-width: 400px;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
