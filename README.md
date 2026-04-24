@@ -50,7 +50,7 @@ barepitch/
 1. Clone the repository
 
    ```powershell
-   git clone https://github.com/jouwnaam/barepitch.git
+   git clone https://github.com/visserdavid/BarePitch.git
    cd barepitch
    ```
 
