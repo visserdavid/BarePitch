@@ -57,7 +57,7 @@ barepitch/
 2. Copy the environment file and configure it
 
    ```powershell
-   Copy-Item .env.example .env
+   cp .env.example .env
    ```
 
    Open `.env` and fill in your local database credentials.
