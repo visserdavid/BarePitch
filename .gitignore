@@ -1,0 +1,6 @@
+.env
+*.log
+/storage/logs/*
+/storage/uploads/*
+/vendor/
+/node_modules/
