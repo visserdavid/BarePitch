@@ -36,6 +36,10 @@ return [
     'players.created'             => 'Speler toegevoegd.',
     'players.updated'             => 'Speler bijgewerkt.',
     'players.deactivated'         => 'Speler op inactief gezet.',
+    'players.deleted'             => 'Speler verwijderd.',
+    'players.has_match_history'   => 'Deze speler heeft wedstrijdhistorie en kan niet worden verwijderd. Zet de speler op inactief.',
+    'players.deactivate'          => 'Op inactief zetten',
+    'players.delete_confirm'      => 'Deze speler definitief verwijderen? Dit kan niet ongedaan worden gemaakt.',
     'players.empty'               => 'Geen spelers gevonden.',
 
     // Matches
@@ -69,6 +73,7 @@ return [
     'validation.invalid_date'     => 'Voer een geldige datum in.',
     'validation.password_too_short' => 'Wachtwoord moet minimaal 10 tekens zijn.',
     'validation.invalid_status'   => 'Ongeldige statuswaarde.',
+    'validation.shirt_number_range' => 'Rugnummer moet tussen 1 en 99 liggen.',
 
     // Errors
     'error.not_found'             => 'Pagina niet gevonden.',
@@ -83,4 +88,5 @@ return [
     'general.edit'                => 'Bewerken',
     'general.archive'             => 'Archiveren',
     'general.confirm'             => 'Weet je het zeker?',
+    'general.delete'              => 'Verwijderen',
 ];

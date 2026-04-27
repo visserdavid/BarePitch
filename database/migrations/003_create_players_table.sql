@@ -5,7 +5,7 @@ CREATE TABLE players (
     shirt_number TINYINT UNSIGNED NULL,
     status ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NULL,
+    updated_at DATETIME NULL ON UPDATE CURRENT_TIMESTAMP,
     deleted_at DATETIME NULL,
 
     CONSTRAINT fk_players_team

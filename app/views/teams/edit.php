@@ -36,6 +36,8 @@
         </div>
     </form>
 
+    <p><a href="/players.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('players.title')) ?></a></p>
+
     <hr style="margin:2rem 0;">
 
     <form method="POST" action="/team_edit.php?id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">

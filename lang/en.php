@@ -36,6 +36,10 @@ return [
     'players.created'             => 'Player added.',
     'players.updated'             => 'Player updated.',
     'players.deactivated'         => 'Player set to inactive.',
+    'players.deleted'             => 'Player removed.',
+    'players.has_match_history'   => 'This player has match history and cannot be deleted. Set them to inactive instead.',
+    'players.deactivate'          => 'Set inactive',
+    'players.delete_confirm'      => 'Permanently delete this player? This cannot be undone.',
     'players.empty'               => 'No players found.',
 
     // Matches
@@ -69,6 +73,7 @@ return [
     'validation.invalid_date'     => 'Please enter a valid date.',
     'validation.password_too_short' => 'Password must be at least 10 characters.',
     'validation.invalid_status'   => 'Invalid status value.',
+    'validation.shirt_number_range' => 'Shirt number must be between 1 and 99.',
 
     // Errors
     'error.not_found'             => 'Page not found.',
@@ -83,4 +88,5 @@ return [
     'general.edit'                => 'Edit',
     'general.archive'             => 'Archive',
     'general.confirm'             => 'Are you sure?',
+    'general.delete'              => 'Delete',
 ];
