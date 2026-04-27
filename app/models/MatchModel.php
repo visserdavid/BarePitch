@@ -14,7 +14,8 @@ class MatchModel
     public function findAllForTeam(int $teamId, int $userId): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT m.*
+            'SELECT m.*,
+                    (SELECT COUNT(*) FROM match_players mp WHERE mp.match_id = m.id AND mp.status = \'selected\') AS selected_count
              FROM matches m
              JOIN teams t ON t.id = m.team_id
              WHERE m.team_id = ?
@@ -30,7 +31,8 @@ class MatchModel
     public function findUpcomingForTeam(int $teamId, int $userId): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT m.*
+            'SELECT m.*,
+                    (SELECT COUNT(*) FROM match_players mp WHERE mp.match_id = m.id AND mp.status = \'selected\') AS selected_count
              FROM matches m
              JOIN teams t ON t.id = m.team_id
              WHERE m.team_id = ?
@@ -47,7 +49,8 @@ class MatchModel
     public function findPastForTeam(int $teamId, int $userId): array
     {
         $stmt = $this->pdo->prepare(
-            'SELECT m.*
+            'SELECT m.*,
+                    (SELECT COUNT(*) FROM match_players mp WHERE mp.match_id = m.id AND mp.status = \'selected\') AS selected_count
              FROM matches m
              JOIN teams t ON t.id = m.team_id
              WHERE m.team_id = ?

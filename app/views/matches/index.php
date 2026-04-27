@@ -34,6 +34,7 @@
                     <th><?= e(__('matches.location')) ?></th>
                     <th><?= e(__('matches.status')) ?></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +46,11 @@
                     <td><?= $match['home_away'] !== null ? e(__('matches.' . $match['home_away'])) : '—' ?></td>
                     <td><?= $match['location'] !== null ? e($match['location']) : '—' ?></td>
                     <td><?= e(__('matches.status.' . $match['status'])) ?></td>
+                    <td>
+                        <?php if ((int) $match['selected_count'] > 0): ?>
+                            <span class="badge-selected"><?= e(__('attendance.selected_count', ['count' => (string) $match['selected_count']])) ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td>
                         <a href="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
                         <form method="POST" action="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>" style="display:inline;" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">
@@ -71,6 +77,7 @@
                     <th><?= e(__('matches.location')) ?></th>
                     <th><?= e(__('matches.status')) ?></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -82,6 +89,11 @@
                     <td><?= $match['home_away'] !== null ? e(__('matches.' . $match['home_away'])) : '—' ?></td>
                     <td><?= $match['location'] !== null ? e($match['location']) : '—' ?></td>
                     <td><?= e(__('matches.status.' . $match['status'])) ?></td>
+                    <td>
+                        <?php if ((int) $match['selected_count'] > 0): ?>
+                            <span class="badge-selected"><?= e(__('attendance.selected_count', ['count' => (string) $match['selected_count']])) ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td>
                         <a href="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
                         <form method="POST" action="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>" style="display:inline;" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">

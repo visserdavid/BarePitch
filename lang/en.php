@@ -73,6 +73,9 @@ return [
     'attendance.status.available' => 'Available',
     'attendance.status.unavailable' => 'Unavailable',
     'attendance.status.selected'  => 'Selected',
+    'attendance.summary'          => ':selected selected · :available available · :unavailable unavailable · :unknown unknown',
+    'attendance.selected_count'   => ':count selected',
+    'attendance.no_players'       => 'No active players in this team. Add players before setting attendance.',
 
     // Validation
     'validation.required'         => 'This field is required.',

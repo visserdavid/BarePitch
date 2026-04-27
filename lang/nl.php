@@ -73,6 +73,9 @@ return [
     'attendance.status.available' => 'Beschikbaar',
     'attendance.status.unavailable' => 'Niet beschikbaar',
     'attendance.status.selected'  => 'Geselecteerd',
+    'attendance.summary'          => ':selected geselecteerd · :available beschikbaar · :unavailable niet beschikbaar · :unknown onbekend',
+    'attendance.selected_count'   => ':count geselecteerd',
+    'attendance.no_players'       => 'Geen actieve spelers in dit team. Voeg spelers toe voordat je aanwezigheid instelt.',
 
     // Validation
     'validation.required'         => 'Dit veld is verplicht.',

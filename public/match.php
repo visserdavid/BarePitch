@@ -5,6 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../app/config/bootstrap.php';
 require_once __DIR__ . '/../app/models/TeamModel.php';
 require_once __DIR__ . '/../app/models/MatchModel.php';
+require_once __DIR__ . '/../app/models/AttendanceModel.php';
 
 requireLogin();
 
@@ -26,14 +27,37 @@ if ($team === null) {
     exit;
 }
 
-$match = (new MatchModel())->findForTeam((int) $matchId, (int) $teamId, currentUserId());
+$matchModel = new MatchModel();
+$match = $matchModel->findForTeam((int) $matchId, (int) $teamId, currentUserId());
 
 if ($match === null) {
     header('Location: /matches.php?team_id=' . $teamId);
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!validateCsrf()) {
+        http_response_code(403);
+        exit('Forbidden');
+    }
+
+    $statuses = $_POST['statuses'] ?? [];
+    if (!is_array($statuses)) {
+        $statuses = [];
+    }
+
+    (new AttendanceModel())->saveStatuses((int) $matchId, (int) $teamId, currentUserId(), $statuses);
+    setFlash('success', __('attendance.saved'));
+    header('Location: /match.php?id=' . $matchId . '&team_id=' . $teamId);
+    exit;
+}
+
+$attendanceModel = new AttendanceModel();
+
 render('matches/detail', [
-    'team'  => $team,
-    'match' => $match,
+    'team'    => $team,
+    'match'   => $match,
+    'players' => $attendanceModel->findForMatch((int) $matchId, (int) $teamId, currentUserId()),
+    'summary' => $attendanceModel->getStatusSummary((int) $matchId),
+    'flash'   => getFlash(),
 ]);
