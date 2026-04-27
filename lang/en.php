@@ -55,7 +55,15 @@ return [
     'matches.created'             => 'Match created.',
     'matches.updated'             => 'Match updated.',
     'matches.archived'            => 'Match archived.',
+    'matches.detail'              => 'Match detail',
     'matches.empty'               => 'No matches found.',
+    'matches.home'                => 'Home',
+    'matches.away'                => 'Away',
+    'matches.neutral'             => 'Neutral',
+    'matches.status.planned'      => 'Planned',
+    'matches.status.completed'    => 'Completed',
+    'matches.status.archived'     => 'Archived',
+    'matches.attendance_placeholder' => 'Player selection — coming in the next version.',
 
     // Attendance
     'attendance.title'            => 'Attendance',
@@ -74,6 +82,7 @@ return [
     'validation.password_too_short' => 'Password must be at least 10 characters.',
     'validation.invalid_status'   => 'Invalid status value.',
     'validation.shirt_number_range' => 'Shirt number must be between 1 and 99.',
+    'validation.invalid_time'      => 'Please enter a valid time (HH:MM).',
 
     // Errors
     'error.not_found'             => 'Page not found.',

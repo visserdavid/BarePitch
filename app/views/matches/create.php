@@ -1,0 +1,65 @@
+<?php $pageTitle = e(__('matches.create')) . ' — BarePitch'; ?>
+<?php include dirname(__DIR__) . '/layouts/header.php'; ?>
+
+<section>
+    <h1><?= e(__('matches.create')) ?></h1>
+
+    <p><a href="/matches.php?team_id=<?= e((string) $team['id']) ?>">&larr; <?= e($team['name']) ?></a></p>
+
+    <form method="POST" action="/match_create.php" novalidate style="max-width:480px;">
+        <?= csrfField() ?>
+        <input type="hidden" name="team_id" value="<?= e((string) $team['id']) ?>">
+
+        <div class="form-group">
+            <label for="opponent_name"><?= e(__('matches.opponent')) ?></label>
+            <input type="text" id="opponent_name" name="opponent_name" value="<?= e($input['opponent_name'] ?? '') ?>" maxlength="100" required>
+            <?php if (!empty($errors['opponent_name'])): ?>
+                <span class="form-error"><?= e($errors['opponent_name']) ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="match_date"><?= e(__('matches.date')) ?></label>
+            <input type="date" id="match_date" name="match_date" value="<?= e($input['match_date'] ?? '') ?>" required>
+            <?php if (!empty($errors['match_date'])): ?>
+                <span class="form-error"><?= e($errors['match_date']) ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="kickoff_time"><?= e(__('matches.kickoff')) ?></label>
+            <input type="time" id="kickoff_time" name="kickoff_time" value="<?= e($input['kickoff_time'] ?? '') ?>">
+            <?php if (!empty($errors['kickoff_time'])): ?>
+                <span class="form-error"><?= e($errors['kickoff_time']) ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="location"><?= e(__('matches.location')) ?></label>
+            <input type="text" id="location" name="location" value="<?= e($input['location'] ?? '') ?>" maxlength="150">
+            <?php if (!empty($errors['location'])): ?>
+                <span class="form-error"><?= e($errors['location']) ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="home_away"><?= e(__('matches.home_away')) ?></label>
+            <select id="home_away" name="home_away">
+                <option value=""></option>
+                <option value="home"<?= ($input['home_away'] ?? '') === 'home' ? ' selected' : '' ?>><?= e(__('matches.home')) ?></option>
+                <option value="away"<?= ($input['home_away'] ?? '') === 'away' ? ' selected' : '' ?>><?= e(__('matches.away')) ?></option>
+                <option value="neutral"<?= ($input['home_away'] ?? '') === 'neutral' ? ' selected' : '' ?>><?= e(__('matches.neutral')) ?></option>
+            </select>
+            <?php if (!empty($errors['home_away'])): ?>
+                <span class="form-error"><?= e($errors['home_away']) ?></span>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><?= e(__('general.save')) ?></button>
+            <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.cancel')) ?></a>
+        </div>
+    </form>
+</section>
+
+<?php include dirname(__DIR__) . '/layouts/footer.php'; ?>

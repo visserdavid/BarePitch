@@ -40,6 +40,7 @@
                     <td><?= e($team['status']) ?></td>
                     <td>
                         <a href="/players.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('players.title')) ?></a>
+                        <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('matches.title')) ?></a>
                         <a href="/team_edit.php?id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
                         <form method="POST" action="/team_edit.php?id=<?= e((string) $team['id']) ?>" style="display:inline;" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">
                             <?= csrfField() ?>

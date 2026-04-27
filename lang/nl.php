@@ -55,7 +55,15 @@ return [
     'matches.created'             => 'Wedstrijd aangemaakt.',
     'matches.updated'             => 'Wedstrijd bijgewerkt.',
     'matches.archived'            => 'Wedstrijd gearchiveerd.',
+    'matches.detail'              => 'Wedstrijddetail',
     'matches.empty'               => 'Geen wedstrijden gevonden.',
+    'matches.home'                => 'Thuis',
+    'matches.away'                => 'Uit',
+    'matches.neutral'             => 'Neutraal',
+    'matches.status.planned'      => 'Gepland',
+    'matches.status.completed'    => 'Gespeeld',
+    'matches.status.archived'     => 'Gearchiveerd',
+    'matches.attendance_placeholder' => 'Spelerselectie — beschikbaar in de volgende versie.',
 
     // Attendance
     'attendance.title'            => 'Aanwezigheid',
@@ -74,6 +82,7 @@ return [
     'validation.password_too_short' => 'Wachtwoord moet minimaal 10 tekens zijn.',
     'validation.invalid_status'   => 'Ongeldige statuswaarde.',
     'validation.shirt_number_range' => 'Rugnummer moet tussen 1 en 99 liggen.',
+    'validation.invalid_time'      => 'Voer een geldige tijd in (UU:MM).',
 
     // Errors
     'error.not_found'             => 'Pagina niet gevonden.',

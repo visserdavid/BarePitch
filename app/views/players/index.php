@@ -7,7 +7,11 @@
         <a href="/player_create.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-primary"><?= e(__('players.add')) ?></a>
     </div>
 
-    <p><a href="/teams.php">&larr; <?= e(__('teams.title')) ?></a></p>
+    <p>
+        <a href="/teams.php">&larr; <?= e(__('teams.title')) ?></a>
+        &nbsp;|&nbsp;
+        <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>"><?= e(__('matches.title')) ?></a>
+    </p>
 
     <?php if (!empty($flash)): ?>
         <div class="flash flash--<?= e($flash['type']) ?>">
