@@ -23,7 +23,7 @@
     <?php else: ?>
 
         <?php if (!empty($upcoming)): ?>
-        <h2 style="margin-top:1.5rem;margin-bottom:0.75rem;">Upcoming</h2>
+        <h2 class="section-heading"><?= e(__('matches.upcoming')) ?></h2>
         <table class="table">
             <thead>
                 <tr>
@@ -66,7 +66,7 @@
         <?php endif; ?>
 
         <?php if (!empty($past)): ?>
-        <h2 style="margin-top:2rem;margin-bottom:0.75rem;">Past</h2>
+        <h2 class="section-heading"><?= e(__('matches.past')) ?></h2>
         <table class="table">
             <thead>
                 <tr>

@@ -57,6 +57,8 @@ return [
     'matches.archived'            => 'Wedstrijd gearchiveerd.',
     'matches.detail'              => 'Wedstrijddetail',
     'matches.empty'               => 'Geen wedstrijden gevonden.',
+    'matches.upcoming'             => 'Komende wedstrijden',
+    'matches.past'                 => 'Gespeelde wedstrijden',
     'matches.home'                => 'Thuis',
     'matches.away'                => 'Uit',
     'matches.neutral'             => 'Neutraal',
