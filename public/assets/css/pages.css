@@ -50,6 +50,13 @@
     opacity: 0.45;
 }
 
+/* ─── Inline form group (deactivate + delete on same line) ─── */
+
+.form-inline {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
 /* ─── Match detail info table ─── */
 
 .match-info {

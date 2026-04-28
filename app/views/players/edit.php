@@ -46,7 +46,7 @@
     <hr>
 
     <?php if ($player['status'] === 'active'): ?>
-    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')" style="display:inline;">
+    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')" class="form-inline">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="deactivate">
         <button type="submit" class="btn btn-secondary"><?= e(__('players.deactivate')) ?></button>
@@ -54,7 +54,7 @@
     <?php endif; ?>
 
     <?php if (!$hasMatchHistory): ?>
-    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('players.delete_confirm')) ?>')" style="display:inline; margin-left:0.5rem;">
+    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('players.delete_confirm')) ?>')" class="form-inline">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="delete">
         <button type="submit" class="btn btn-danger"><?= e(__('general.delete')) ?></button>
