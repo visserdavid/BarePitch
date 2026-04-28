@@ -36,13 +36,6 @@
     background: #F0F0F0;
 }
 
-@media (max-width: 640px) {
-    .table tr[data-href] td a,
-    .table tr[data-href] td button,
-    .table tr[data-href] td form {
-        pointer-events: none;
-    }
-}
 
 /* ─── Inactive player row ─── */
 
