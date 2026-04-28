@@ -11,6 +11,7 @@ $teams = (new TeamModel())->findAllForUser(currentUserId());
 $flash = getFlash();
 
 render('teams/index', [
-    'teams' => $teams,
-    'flash' => $flash,
+    'teams'        => $teams,
+    'flash'        => $flash,
+    'bottomNavNew' => ['url' => '/team_create.php', 'label' => __('teams.create')],
 ]);

@@ -2,7 +2,7 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+    <div class="page-header">
         <h1><?= e(__('teams.title')) ?></h1>
         <a href="/team_create.php" class="btn btn-primary"><?= e(__('teams.create')) ?></a>
     </div>
@@ -23,22 +23,22 @@
             <thead>
                 <tr>
                     <th><?= e(__('teams.name')) ?></th>
-                    <th><?= e(__('teams.season')) ?></th>
-                    <th><?= e(__('players.title')) ?></th>
-                    <th><?= e(__('matches.title')) ?></th>
-                    <th><?= e(__('teams.status')) ?></th>
-                    <th></th>
+                    <th class="col-hide-mobile"><?= e(__('teams.season')) ?></th>
+                    <th class="col-hide-mobile"><?= e(__('players.title')) ?></th>
+                    <th class="col-hide-mobile"><?= e(__('matches.title')) ?></th>
+                    <th class="col-hide-mobile"><?= e(__('teams.status')) ?></th>
+                    <th class="col-hide-mobile"></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($teams as $team): ?>
-                <tr>
+                <tr data-href="/team_edit.php?id=<?= e((string) $team['id']) ?>">
                     <td><?= e($team['name']) ?></td>
-                    <td><?= e($team['season'] ?? '—') ?></td>
-                    <td><?= e((string) $team['player_count']) ?></td>
-                    <td><?= e((string) $team['match_count']) ?></td>
-                    <td><?= e($team['status']) ?></td>
-                    <td>
+                    <td class="col-hide-mobile"><?= e($team['season'] ?? '—') ?></td>
+                    <td class="col-hide-mobile"><?= e((string) $team['player_count']) ?></td>
+                    <td class="col-hide-mobile"><?= e((string) $team['match_count']) ?></td>
+                    <td class="col-hide-mobile"><?= e($team['status']) ?></td>
+                    <td class="col-hide-mobile">
                         <a href="/players.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('players.title')) ?></a>
                         <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('matches.title')) ?></a>
                         <a href="/team_edit.php?id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
