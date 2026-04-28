@@ -1,0 +1,71 @@
+/* ─── Mobile table column priorities ─── */
+
+@media (max-width: 640px) {
+    .col-hide-mobile {
+        display: none;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions .btn {
+        justify-content: center;
+    }
+
+    .table td,
+    .table th {
+        padding: 0.625rem 0.5rem;
+    }
+}
+
+/* ─── Tappable table rows ─── */
+
+.table tr[data-href] {
+    cursor: pointer;
+}
+
+.table tr[data-href]:active {
+    background: #F0F0F0;
+}
+
+@media (max-width: 640px) {
+    .table tr[data-href] td a,
+    .table tr[data-href] td button,
+    .table tr[data-href] td form {
+        pointer-events: none;
+    }
+}
+
+/* ─── Inactive player row ─── */
+
+.table tr.row-inactive {
+    opacity: 0.45;
+}
+
+/* ─── Match detail info table ─── */
+
+.match-info {
+    max-width: 480px;
+    margin-bottom: 1.5rem;
+}
+
+.match-info .table th {
+    width: 140px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.match-info .table td {
+    font-weight: 500;
+}

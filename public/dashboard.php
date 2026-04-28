@@ -14,4 +14,5 @@ $teams = (new TeamModel())->findAllForUser(currentUserId());
 render('dashboard/index', [
     'displayName' => $user['display_name'] ?? 'Coach',
     'teamCount'   => count($teams),
+    'currentPage' => 'dashboard',
 ]);

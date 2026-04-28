@@ -71,6 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ],
             'hasMatchHistory' => $playerModel->hasMatchHistory((int) $playerId),
             'flash'           => null,
+            'currentPage'     => 'players',
+            'activeTeamId'    => $teamId,
         ]);
         exit;
     }
@@ -106,4 +108,6 @@ render('players/edit', [
     'input'           => [],
     'hasMatchHistory' => $playerModel->hasMatchHistory((int) $playerId),
     'flash'           => getFlash(),
+    'currentPage'     => 'players',
+    'activeTeamId'    => $teamId,
 ]);

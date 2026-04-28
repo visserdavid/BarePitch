@@ -2,11 +2,24 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <h1><?= e($match['opponent_name']) ?> — <?= e($match['match_date']) ?></h1>
+    <div class="page-header">
+        <h1><?= e($match['opponent_name']) ?></h1>
+        <a href="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>"
+           class="btn-icon"
+           aria-label="<?= e(__('general.edit')) ?>"
+           title="<?= e(__('general.edit')) ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.7 2.3a1 1 0 0 1 1.4 0l2.3 2.3a1 1 0 0 1 0 1.4L5 18.4H1.5V15L13.7 2.3z"/></svg>
+        </a>
+    </div>
 
-    <p><a href="/matches.php?team_id=<?= e((string) $team['id']) ?>">&larr; <?= e($team['name']) ?></a></p>
+    <p>
+        <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 4 7 10 13 16"/></svg>
+            <?= e($team['name']) ?>
+        </a>
+    </p>
 
-    <table class="table" style="max-width:480px;margin-bottom:1rem;">
+    <table class="table match-info">
         <tbody>
             <tr>
                 <th><?= e(__('matches.date')) ?></th>
@@ -37,18 +50,12 @@
         </tbody>
     </table>
 
-    <p>
-        <a href="/match_edit.php?id=<?= e((string) $match['id']) ?>&team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
-    </p>
-
-    <hr style="margin:2rem 0;">
+    <hr>
 
     <h2><?= e(__('attendance.title')) ?></h2>
 
     <?php if (!empty($flash)): ?>
-        <div class="flash flash--<?= e($flash['type']) ?>">
-            <?= e($flash['message']) ?>
-        </div>
+        <div class="flash flash--<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
     <?php endif; ?>
 
     <?php if (empty($players)): ?>
@@ -57,10 +64,10 @@
 
         <p class="attendance-summary">
             <?= e(__('attendance.summary', [
-                'selected'   => (string) $summary['selected'],
-                'available'  => (string) $summary['available'],
-                'unavailable'=> (string) $summary['unavailable'],
-                'unknown'    => (string) $summary['unknown'],
+                'selected'    => (string) $summary['selected'],
+                'available'   => (string) $summary['available'],
+                'unavailable' => (string) $summary['unavailable'],
+                'unknown'     => (string) $summary['unknown'],
             ])) ?>
         </p>
 

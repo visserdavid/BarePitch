@@ -2,15 +2,22 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <h1><?= e(__('teams.edit')) ?></h1>
+    <div class="page-header">
+        <h1><?= e(__('teams.edit')) ?></h1>
+    </div>
+
+    <p>
+        <a href="/teams.php" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 4 7 10 13 16"/></svg>
+            <?= e(__('teams.title')) ?>
+        </a>
+    </p>
 
     <?php if (!empty($flash)): ?>
-        <div class="flash flash--<?= e($flash['type']) ?>">
-            <?= e($flash['message']) ?>
-        </div>
+        <div class="flash flash--<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
     <?php endif; ?>
 
-    <form method="POST" action="/team_edit.php?id=<?= e((string) $team['id']) ?>" novalidate style="max-width:480px;">
+    <form method="POST" action="/team_edit.php?id=<?= e((string) $team['id']) ?>" novalidate class="form-container">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="update">
 
@@ -36,9 +43,7 @@
         </div>
     </form>
 
-    <p><a href="/players.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('players.title')) ?></a></p>
-
-    <hr style="margin:2rem 0;">
+    <hr>
 
     <form method="POST" action="/team_edit.php?id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">
         <?= csrfField() ?>

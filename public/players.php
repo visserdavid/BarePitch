@@ -29,5 +29,6 @@ render('players/index', [
     'team'         => $team,
     'players'      => $players,
     'flash'        => getFlash(),
-    'bottomNavNew' => ['url' => '/player_create.php?team_id=' . $teamId, 'label' => __('players.add')],
+    'currentPage'  => 'players',
+    'activeTeamId' => $teamId,
 ]);

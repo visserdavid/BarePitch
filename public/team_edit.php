@@ -55,13 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         render('teams/edit', [
-            'team'   => $team,
-            'errors' => $errors,
-            'input'  => [
+            'team'        => $team,
+            'errors'      => $errors,
+            'input'       => [
                 'name'   => trim($_POST['name'] ?? ''),
                 'season' => trim($_POST['season'] ?? ''),
             ],
-            'flash'  => null,
+            'flash'       => null,
+            'currentPage' => 'teams',
         ]);
         exit;
     }
@@ -71,8 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 render('teams/edit', [
-    'team'   => $team,
-    'errors' => [],
-    'input'  => [],
-    'flash'  => getFlash(),
+    'team'        => $team,
+    'errors'      => [],
+    'input'       => [],
+    'flash'       => getFlash(),
+    'currentPage' => 'teams',
 ]);

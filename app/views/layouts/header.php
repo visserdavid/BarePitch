@@ -8,20 +8,13 @@
     <link rel="stylesheet" href="/assets/css/layout.css">
     <link rel="stylesheet" href="/assets/css/components.css">
     <link rel="stylesheet" href="/assets/css/forms.css">
-    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/pages.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
 </head>
 <body>
 <header class="site-header">
     <div class="container">
         <span class="site-name">BarePitch</span>
-        <?php if (currentUserId() !== null): ?>
-        <nav class="site-nav">
-            <form method="POST" action="/logout.php">
-                <?= csrfField() ?>
-                <button type="submit"><?= e(__('auth.logout')) ?></button>
-            </form>
-        </nav>
-        <?php endif; ?>
     </div>
 </header>
 <main class="container">

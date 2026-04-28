@@ -46,18 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     render('players/create', [
-        'team'   => $team,
-        'errors' => $errors,
-        'input'  => [
+        'team'         => $team,
+        'errors'       => $errors,
+        'input'        => [
             'display_name' => trim($_POST['display_name'] ?? ''),
             'shirt_number' => trim($_POST['shirt_number'] ?? ''),
         ],
+        'currentPage'  => 'players',
+        'activeTeamId' => $teamId,
     ]);
     exit;
 }
 
 render('players/create', [
-    'team'   => $team,
-    'errors' => [],
-    'input'  => [],
+    'team'         => $team,
+    'errors'       => [],
+    'input'        => [],
+    'currentPage'  => 'players',
+    'activeTeamId' => $teamId,
 ]);

@@ -2,11 +2,18 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <h1><?= e(__('matches.create')) ?></h1>
+    <div class="page-header">
+        <h1><?= e(__('matches.create')) ?></h1>
+    </div>
 
-    <p><a href="/matches.php?team_id=<?= e((string) $team['id']) ?>">&larr; <?= e($team['name']) ?></a></p>
+    <p>
+        <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 4 7 10 13 16"/></svg>
+            <?= e($team['name']) ?>
+        </a>
+    </p>
 
-    <form method="POST" action="/match_create.php" novalidate style="max-width:480px;">
+    <form method="POST" action="/match_create.php" novalidate class="form-container">
         <?= csrfField() ?>
         <input type="hidden" name="team_id" value="<?= e((string) $team['id']) ?>">
 

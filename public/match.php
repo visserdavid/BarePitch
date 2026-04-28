@@ -56,9 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $attendanceModel = new AttendanceModel();
 
 render('matches/detail', [
-    'team'    => $team,
-    'match'   => $match,
-    'players' => $attendanceModel->findForMatch((int) $matchId, (int) $teamId, currentUserId()),
-    'summary' => $attendanceModel->getStatusSummary((int) $matchId),
-    'flash'   => getFlash(),
+    'team'         => $team,
+    'match'        => $match,
+    'players'      => $attendanceModel->findForMatch((int) $matchId, (int) $teamId, currentUserId()),
+    'summary'      => $attendanceModel->getStatusSummary((int) $matchId),
+    'flash'        => getFlash(),
+    'currentPage'  => 'matches',
+    'activeTeamId' => $teamId,
 ]);

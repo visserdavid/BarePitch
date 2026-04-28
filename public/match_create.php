@@ -48,21 +48,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     render('matches/create', [
-        'team'   => $team,
-        'errors' => $errors,
-        'input'  => [
+        'team'         => $team,
+        'errors'       => $errors,
+        'input'        => [
             'opponent_name' => trim($_POST['opponent_name'] ?? ''),
             'match_date'    => trim($_POST['match_date'] ?? ''),
             'kickoff_time'  => trim($_POST['kickoff_time'] ?? ''),
             'location'      => trim($_POST['location'] ?? ''),
             'home_away'     => trim($_POST['home_away'] ?? ''),
         ],
+        'currentPage'  => 'matches',
+        'activeTeamId' => $teamId,
     ]);
     exit;
 }
 
 render('matches/create', [
-    'team'   => $team,
-    'errors' => [],
-    'input'  => [],
+    'team'         => $team,
+    'errors'       => [],
+    'input'        => [],
+    'currentPage'  => 'matches',
+    'activeTeamId' => $teamId,
 ]);

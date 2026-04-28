@@ -30,5 +30,6 @@ render('matches/index', [
     'upcoming'     => $matchModel->findUpcomingForTeam((int) $teamId, currentUserId()),
     'past'         => $matchModel->findPastForTeam((int) $teamId, currentUserId()),
     'flash'        => getFlash(),
-    'bottomNavNew' => ['url' => '/match_create.php?team_id=' . $teamId, 'label' => __('matches.create')],
+    'currentPage'  => 'matches',
+    'activeTeamId' => $teamId,
 ]);

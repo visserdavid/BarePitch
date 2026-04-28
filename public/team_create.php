@@ -29,13 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     render('teams/create', [
-        'errors' => $errors,
-        'input'  => [
+        'errors'      => $errors,
+        'input'       => [
             'name'   => trim($_POST['name'] ?? ''),
             'season' => trim($_POST['season'] ?? ''),
         ],
+        'currentPage' => 'teams',
     ]);
     exit;
 }
 
-render('teams/create', ['errors' => [], 'input' => []]);
+render('teams/create', ['errors' => [], 'input' => [], 'currentPage' => 'teams']);

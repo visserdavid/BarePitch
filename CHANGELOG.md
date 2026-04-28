@@ -11,6 +11,22 @@ No changes pending.
 
 ---
 
+## v1.1.0 — 2026-04-28
+
+Visual redesign.
+
+- Fresh, sporty design direction applied across all views
+- Bottom navigation bar with icon labels, fixed to viewport bottom
+- Context-sensitive nav slot for active team's players and matches
+- Icon-only action buttons in list views (edit, archive, deactivate)
+- Full CSS rewrite with design system via custom properties
+- Top header stripped back to app name only
+- Mobile-first layout preserved and strengthened
+- Stagger animation on list rows (fade + slide, 40ms gap)
+- All inline `style=""` attributes removed from views
+
+---
+
 ## v1.0.0 — 2026-04-28
 
 - Added custom 404 and 500 error pages (standalone HTML, Apache `ErrorDocument`)

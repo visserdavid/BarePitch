@@ -2,17 +2,22 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <h1><?= e(__('players.edit')) ?></h1>
+    <div class="page-header">
+        <h1><?= e(__('players.edit')) ?></h1>
+    </div>
 
-    <p><a href="/players.php?team_id=<?= e((string) $team['id']) ?>">&larr; <?= e($team['name']) ?></a></p>
+    <p>
+        <a href="/players.php?team_id=<?= e((string) $team['id']) ?>" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 4 7 10 13 16"/></svg>
+            <?= e($team['name']) ?>
+        </a>
+    </p>
 
     <?php if (!empty($flash)): ?>
-        <div class="flash flash--<?= e($flash['type']) ?>">
-            <?= e($flash['message']) ?>
-        </div>
+        <div class="flash flash--<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
     <?php endif; ?>
 
-    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" novalidate style="max-width:480px;">
+    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" novalidate class="form-container">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="update">
 
@@ -38,10 +43,10 @@
         </div>
     </form>
 
-    <hr style="margin:2rem 0;">
+    <hr>
 
     <?php if ($player['status'] === 'active'): ?>
-    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')">
+    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('general.confirm')) ?>')" style="display:inline;">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="deactivate">
         <button type="submit" class="btn btn-secondary"><?= e(__('players.deactivate')) ?></button>
@@ -49,7 +54,7 @@
     <?php endif; ?>
 
     <?php if (!$hasMatchHistory): ?>
-    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('players.delete_confirm')) ?>')" style="margin-top:1rem;">
+    <form method="POST" action="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" onsubmit="return confirm('<?= e(__('players.delete_confirm')) ?>')" style="display:inline; margin-left:0.5rem;">
         <?= csrfField() ?>
         <input type="hidden" name="action" value="delete">
         <button type="submit" class="btn btn-danger"><?= e(__('general.delete')) ?></button>
