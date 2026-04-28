@@ -1,16 +1,10 @@
 # Disable directory listing
 Options -Indexes
 
-# Deny PHP execution in assets directory
-<Directory "assets">
-    <FilesMatch "\.php$">
-        Require all denied
-    </FilesMatch>
-</Directory>
-
 # Redirect HTTP to HTTPS (skip localhost)
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /
     RewriteCond %{HTTPS} off
     RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1$
     RewriteCond %{REMOTE_ADDR} !^::1$
