@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/layout.css">
     <link rel="stylesheet" href="/assets/css/components.css">
     <link rel="stylesheet" href="/assets/css/forms.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
 <header class="site-header">
