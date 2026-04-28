@@ -8,6 +8,9 @@ class AuthService
 {
     private UserModel $users;
 
+    private const MAX_ATTEMPTS   = 10;
+    private const ATTEMPT_WINDOW = 15; // minutes
+
     // Dummy hash used to keep timing consistent when email is not found
     private const DUMMY_HASH = '$2y$12$invalidsaltinvalidsaltinvalidsa.invalidsaltinvalidsaltinv';
 
@@ -66,5 +69,36 @@ class AuthService
 
         $_SESSION['last_activity'] = time();
         return true;
+    }
+
+    public function isRateLimited(string $ip): bool
+    {
+        if (random_int(1, 100) === 1) {
+            $this->cleanupOldAttempts();
+        }
+
+        $stmt = getPdo()->prepare(
+            'SELECT COUNT(*) FROM login_attempts
+             WHERE ip_address = ? AND attempted_at > DATE_SUB(NOW(), INTERVAL ' . self::ATTEMPT_WINDOW . ' MINUTE)'
+        );
+        $stmt->execute([$ip]);
+        return (int) $stmt->fetchColumn() >= self::MAX_ATTEMPTS;
+    }
+
+    public function recordFailedAttempt(string $ip): void
+    {
+        $stmt = getPdo()->prepare('INSERT INTO login_attempts (ip_address) VALUES (?)');
+        $stmt->execute([$ip]);
+    }
+
+    public function clearAttempts(string $ip): void
+    {
+        $stmt = getPdo()->prepare('DELETE FROM login_attempts WHERE ip_address = ?');
+        $stmt->execute([$ip]);
+    }
+
+    private function cleanupOldAttempts(): void
+    {
+        getPdo()->exec('DELETE FROM login_attempts WHERE attempted_at < DATE_SUB(NOW(), INTERVAL 1 HOUR)');
     }
 }
