@@ -17,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(403);
         exit('Forbidden');
     }
-    rotateCsrfToken();
-
     $ip       = $_SERVER['REMOTE_ADDR'];
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
@@ -29,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         render('auth/login', ['error' => $error, 'email' => $email]);
         exit;
     }
+
+    rotateCsrfToken();
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $auth->recordFailedAttempt($ip);
