@@ -5,22 +5,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 **Start development server**
+
 ```bash
 php -S localhost:8000 -t public
 ```
 
 **Run migrations** (execute in order; no migration runner exists)
+
 ```bash
 mysql -u barepitch_user -p barepitch_local < database/migrations/001_create_users_table.sql
 # repeat for 002–005
 ```
 
 **Run seed**
+
 ```bash
 mysql -u barepitch_user -p barepitch_local < database/seeds/dev_seed.sql
 ```
 
 **Generate a bcrypt hash** (e.g. for seed data)
+
 ```bash
 php -r "echo password_hash('PlainPassword', PASSWORD_DEFAULT);"
 ```
@@ -38,6 +42,7 @@ There are no build steps, no package manager, no test runner, and no linter. PHP
 **Database access:** `app/config/database.php` creates a PDO instance and stores it in `$GLOBALS['_pdo']`. All code accesses it via `getPdo()`. Models receive the connection through this getter — never via a `global` keyword or constructor injection.
 
 **Request flow:**
+
 ```
 public/foo.php
   └── bootstrap.php (env, session, helpers)
@@ -173,13 +178,23 @@ Language files live in `lang/`. Each file returns a flat PHP array keyed by dot-
 The active language is set via `APP_LANG` in `.env`.
 
 **Usage in views**
+
 ```php
 <?= e(__('teams.title')) ?>
 <?= e(__('dashboard.welcome', ['name' => $displayName])) ?>
 ```
 
 **Rules**
+
 - All user-facing strings in views must use `__()` — never hardcode interface text
 - New strings are added to both `lang/en.php` and `lang/nl.php` at the same time
 - Keys use dot-notation grouped by feature: `auth.*`, `teams.*`, `players.*`, `matches.*`, `attendance.*`, `validation.*`, `error.*`, `general.*`
 - The `__()` helper never throws — missing keys return the key itself as fallback
+
+## Design Skills
+
+When working on CSS or HTML, read and apply the following skills before generating output:
+
+- C:\Users\visse\.agents\skills\redesign-existing-projects\SKILL.md
+- C:\Users\visse\.agents\skills\minimalist-ui\SKILL.md
+- C:\Users\visse\.agents\skills\emil-design-eng\SKILL.md
