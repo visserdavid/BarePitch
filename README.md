@@ -142,7 +142,7 @@ Development always happens on `wip`. Only tested, coherent code is merged to `ma
 
 ## Version
 
-Current version: `v1.0.0`  
+Current version: `v1.1.0`  
 See [CHANGELOG.md](CHANGELOG.md) for history.
 
 ---
