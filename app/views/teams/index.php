@@ -42,13 +42,13 @@
                     <td>
                         <div class="row-actions">
                             <a href="/players.php?team_id=<?= e((string) $team['id']) ?>"
-                               class="btn-icon col-hide-mobile"
+                               class="btn-icon"
                                aria-label="<?= e(__('players.title')) ?>"
                                title="<?= e(__('players.title')) ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="6" r="3"/><path d="M2 18v-1a5 5 0 0 1 10 0v1"/><path d="M15 10a3 3 0 0 1 0 6"/><path d="M19 18v-1a3 3 0 0 0-3-3"/></svg>
                             </a>
                             <a href="/matches.php?team_id=<?= e((string) $team['id']) ?>"
-                               class="btn-icon col-hide-mobile"
+                               class="btn-icon"
                                aria-label="<?= e(__('matches.title')) ?>"
                                title="<?= e(__('matches.title')) ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="16" height="15" rx="2"/><line x1="13" y1="1" x2="13" y2="5"/><line x1="7" y1="1" x2="7" y2="5"/><line x1="2" y1="8" x2="18" y2="8"/></svg>
