@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(403);
         exit('Forbidden');
     }
+    rotateCsrfToken();
 
     $service = new MatchService();
     $errors  = $service->validateMatchInput($_POST);

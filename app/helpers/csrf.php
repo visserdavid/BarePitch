@@ -19,3 +19,8 @@ function validateCsrf(): bool
 {
     return hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '');
 }
+
+function rotateCsrfToken(): void
+{
+    unset($_SESSION['csrf_token']);
+}

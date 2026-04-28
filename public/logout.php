@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !validateCsrf()) {
     http_response_code(403);
     exit('Forbidden');
 }
+rotateCsrfToken();
 
 (new AuthService())->logout();
 

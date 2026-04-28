@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(403);
         exit('Forbidden');
     }
+    rotateCsrfToken();
 
     $service = new TeamService();
     $errors  = $service->validateTeamInput($_POST);
