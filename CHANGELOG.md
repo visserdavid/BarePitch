@@ -7,32 +7,80 @@ The changelog is updated before tagging a new version.
 
 ## [Unreleased]
 
-Changes on `wip` that have not yet been merged to `main`.
+No changes pending.
+
+---
+
+## v1.0.0 — 2026-04-28
+
+- Added custom 404 and 500 error pages (standalone HTML, Apache `ErrorDocument`)
+- Committed preliminary research sketches for post-v1.0.0 roadmap
+
+---
+
+## v0.8.0 — 2026-04-28
+
+- Added database-backed login rate limiting (10 attempts per 15 minutes per IP)
+- Rotated CSRF token after every validated POST
+- Fixed session inactivity timeout enforcement in `requireLogin()`
+- Added `cookie_secure` flag to session configuration
+- Added HTTP security headers on every response
+- Added `public/.htaccess` for directory listing denial and HTTP→HTTPS redirect
+
+---
+
+## v0.7.0 — 2026-04-28
+
+- Added responsive layout with mobile breakpoint styles
+- Added bottom navigation bar for mobile users
+- Made table rows tappable on touch devices
+
+---
+
+## v0.6.0 — 2026-04-27
+
+- Added attendance tracking: coaches can select which players attend each match
+
+---
+
+## v0.5.0 — 2026-04-27
+
+- Added match management: create, edit, archive, and view matches per team
+- Match list split into upcoming and past sections
+
+---
+
+## v0.4.0 — 2026-04-27
+
+- Added player management: add, edit, deactivate, and remove players per team
+
+---
+
+## v0.3.0 — 2026-04-24
+
+- Added team management: create, edit, archive, and list teams
+
+---
+
+## v0.2.0 — 2026-04-24
+
+- Added secure login and session management with CSRF protection
+- Added i18n infrastructure (EN and NL language files)
+
+---
+
+## v0.1.0 — 2026-04-24
+
+- Initialized project structure (`app/`, `database/`, `public/`, `storage/`, `docs/`)
+- Established bootstrap chain, PDO database connection, and view rendering helpers
 
 ---
 
 ## v0.0.1 — 2026-04-24
 
 - Repository initialized
-- Project folder structure created (`app/`, `database/`, `public/`, `storage/`, `docs/`)
 - Base files added (`.gitignore`, `.env.example`, `README.md`, `CHANGELOG.md`)
 - `wip` branch created
-
----
-
-## Upcoming milestones
-
-| Version | Scope |
-|---|---|
-| `v0.1.0` | Project structure and database connection |
-| `v0.2.0` | Authentication |
-| `v0.3.0` | Team management |
-| `v0.4.0` | Player management |
-| `v0.5.0` | Match management |
-| `v0.6.0` | Attendance tracking |
-| `v0.7.0` | Responsive cleanup |
-| `v0.8.0` | Security cleanup |
-| `v1.0.0` | First production-ready release |
 
 ---
 
