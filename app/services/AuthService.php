@@ -59,7 +59,7 @@ class AuthService
             return false;
         }
 
-        if (time() - $_SESSION['last_activity'] > 7200) {
+        if (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT_SECONDS) {
             $this->logout();
             return false;
         }
