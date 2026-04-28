@@ -2,7 +2,7 @@
 <?php include dirname(__DIR__) . '/layouts/header.php'; ?>
 
 <section>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+    <div class="page-header">
         <h1><?= e(__('players.title')) ?> — <?= e($team['name']) ?></h1>
         <a href="/player_create.php?team_id=<?= e((string) $team['id']) ?>" class="btn btn-primary"><?= e(__('players.add')) ?></a>
     </div>
@@ -30,17 +30,17 @@
                 <tr>
                     <th><?= e(__('players.shirt_number')) ?></th>
                     <th><?= e(__('players.display_name')) ?></th>
-                    <th><?= e(__('players.status')) ?></th>
-                    <th></th>
+                    <th class="col-hide-mobile"><?= e(__('players.status')) ?></th>
+                    <th class="col-hide-mobile"></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($players as $player): ?>
-                <tr<?= $player['status'] === 'inactive' ? ' style="opacity:0.5;"' : '' ?>>
+                <tr data-href="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>"<?= $player['status'] === 'inactive' ? ' style="opacity:0.5;"' : '' ?>>
                     <td><?= $player['shirt_number'] !== null ? e((string) $player['shirt_number']) : '—' ?></td>
                     <td><?= e($player['display_name']) ?></td>
-                    <td><?= e($player['status']) ?></td>
-                    <td>
+                    <td class="col-hide-mobile"><?= e($player['status']) ?></td>
+                    <td class="col-hide-mobile">
                         <a href="/player_edit.php?id=<?= e((string) $player['id']) ?>&team_id=<?= e((string) $team['id']) ?>" class="btn btn-secondary"><?= e(__('general.edit')) ?></a>
                     </td>
                 </tr>

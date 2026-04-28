@@ -26,7 +26,8 @@ if ($team === null) {
 $players = (new PlayerModel())->findAllForTeam((int) $teamId, currentUserId());
 
 render('players/index', [
-    'team'    => $team,
-    'players' => $players,
-    'flash'   => getFlash(),
+    'team'         => $team,
+    'players'      => $players,
+    'flash'        => getFlash(),
+    'bottomNavNew' => ['url' => '/player_create.php?team_id=' . $teamId, 'label' => __('players.add')],
 ]);
