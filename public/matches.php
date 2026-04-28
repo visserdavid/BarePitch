@@ -26,8 +26,9 @@ if ($team === null) {
 $matchModel = new MatchModel();
 
 render('matches/index', [
-    'team'     => $team,
-    'upcoming' => $matchModel->findUpcomingForTeam((int) $teamId, currentUserId()),
-    'past'     => $matchModel->findPastForTeam((int) $teamId, currentUserId()),
-    'flash'    => getFlash(),
+    'team'         => $team,
+    'upcoming'     => $matchModel->findUpcomingForTeam((int) $teamId, currentUserId()),
+    'past'         => $matchModel->findPastForTeam((int) $teamId, currentUserId()),
+    'flash'        => getFlash(),
+    'bottomNavNew' => ['url' => '/match_create.php?team_id=' . $teamId, 'label' => __('matches.create')],
 ]);
