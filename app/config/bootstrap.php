@@ -37,12 +37,14 @@ session_name(getenv('SESSION_NAME') ?: 'barepitch_session');
 session_start([
     'cookie_httponly' => true,
     'cookie_samesite' => 'Lax',
-    'use_strict_mode'  => true,
+    'cookie_secure'   => str_starts_with(getenv('APP_URL') ?: '', 'https://'),
+    'use_strict_mode' => true,
 ]);
 
 require_once __DIR__ . '/database.php';
 require_once dirname(__DIR__) . '/helpers/lang.php';
 require_once dirname(__DIR__) . '/helpers/view.php';
 require_once dirname(__DIR__) . '/helpers/auth.php';
+sendSecurityHeaders();
 require_once dirname(__DIR__) . '/helpers/csrf.php';
 require_once dirname(__DIR__) . '/helpers/flash.php';
