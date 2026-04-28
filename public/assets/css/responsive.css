@@ -1,4 +1,4 @@
-/* Page header — replaces inline flex styles on list views */
+/* Page header — global layout (applies on all widths); stacks vertically inside @media below */
 .page-header {
     display: flex;
     align-items: center;
